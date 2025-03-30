@@ -22,11 +22,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Get environment variables with defaults for local development
-ML_API_URL = os.environ.get('ML_API_URL', 'http://localhost:5001/api')
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:3000')
 MONGODB_URI = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/')
-
-S3_BUCKET = os.environ.get('S3_BUCKET_NAME', 'rental-ai-ml-images')
+S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
 
 swagger_config = {
     "headers": [],
@@ -304,7 +302,7 @@ def plot_feat_import():
             
             # Return the local path
             return jsonify({
-                'image_path': f"{ML_API_URL}/static/{filename}"
+                'image_path': f"/static/{filename}"
             })
             
     except Exception as e:
