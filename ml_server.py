@@ -13,6 +13,7 @@ import os
 import boto3
 from io import BytesIO
 import pymongo
+from pymongo.server_api import ServerApi
 
 # Use Agg backend for plotting
 plt.switch_backend('Agg')
@@ -45,7 +46,7 @@ CORS(app, origins=[FRONTEND_URL])
 swag = Swagger(app, config=swagger_config)
 
 # Initialize MongoDB connection
-client = pymongo.MongoClient(MONGODB_URI)
+client = pymongo.MongoClient(MONGODB_URI, server_api=ServerApi('1'), tls=True)
 db = client['rentalai_db']
 test_collection = db['test_data']
 
