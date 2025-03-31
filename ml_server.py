@@ -46,7 +46,7 @@ CORS(app, origins=[FRONTEND_URL])
 swag = Swagger(app, config=swagger_config)
 
 # Initialize MongoDB connection
-client = pymongo.MongoClient(MONGODB_URI, server_api=ServerApi('1'), tls=True)
+client = pymongo.MongoClient(MONGODB_URI, server_api=ServerApi('1'), tls=True, tlsAllowInvalidCertificates=True)
 db = client['rentalai_db']
 test_collection = db['test_data']
 
