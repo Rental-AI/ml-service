@@ -290,7 +290,6 @@ def plot_feat_import():
         # For production: save to S3
         if os.environ.get('ENVIRONMENT') == 'production':
             image_url = save_plot_to_s3(plt, filename)
-            plt.close()
             return jsonify({'image_path': image_url})
         
         # For local development: save to static folder
@@ -300,7 +299,6 @@ def plot_feat_import():
             
             image_path = f'./static/{filename}'
             plt.savefig(image_path, bbox_inches='tight')
-            plt.close()
             
             # Return the local path
             return jsonify({
