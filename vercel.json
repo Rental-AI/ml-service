@@ -3,7 +3,7 @@
     "installCommand": "pip install -r requirements.txt",
     "devCommand": "gunicorn ml_server:app",
     "functions": {
-        "ml_server.py": {
+        "api/ml_server.py": {
         "memory": 1024,
         "maxDuration": 60,
         "excludeFiles": ".next/**,*.cache/**,node_modules/**,public/**,app/**,static/**"
