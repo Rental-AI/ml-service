@@ -1,12 +1,9 @@
-import json
 import pickle
-import time
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flasgger import Swagger
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 import shap
 from pymongo import MongoClient
 import os
@@ -14,11 +11,10 @@ import boto3
 from io import BytesIO
 import pymongo
 from pymongo.server_api import ServerApi
+from dotenv import load_dotenv
 
 # Use Agg backend for plotting
 plt.switch_backend('Agg')
-
-from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
