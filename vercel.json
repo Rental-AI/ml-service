@@ -1,22 +1,24 @@
 {
-    "version": 2,
+    "version": 2.1,
     "installCommand": "pip install -r requirements.txt",
     "devCommand": "gunicorn ml_server:app",
-    "builds": [
-        {
-        "src": "ml_server.py",
-        "use": "@vercel/python"
+    "functions": {
+        "ml_server.py": {
+            "runtime": "python"
         }
-    ],
+    },
     "routes": [
         {
-        "src": "/(.*)",
-        "dest": "ml_server.py"
+            "src": "/(.*)",
+            "dest": "ml_server.py"
         }
     ],
-    "functions": {
-        "/**": {
-            "excludeFiles": "{.next,*.cache,node_modules,public,app,static}/**"
-        }
-    }
+    "excludeFiles": [
+        ".next/**",
+        "*.cache/**",
+        "node_modules/**",
+        "public/**",
+        "app/**",
+        "static/**"
+    ]
 }
