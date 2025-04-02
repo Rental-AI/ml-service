@@ -9,7 +9,6 @@ from pymongo import MongoClient
 import os
 import boto3
 from io import BytesIO
-import pymongo
 from pymongo.server_api import ServerApi
 from dotenv import load_dotenv
 
@@ -42,7 +41,7 @@ CORS(app, origins=[FRONTEND_URL])
 swag = Swagger(app, config=swagger_config)
 
 # Initialize MongoDB connection
-client = pymongo.MongoClient(MONGODB_URI, server_api=ServerApi('1'), tls=True, tlsAllowInvalidCertificates=True)
+client = MongoClient(MONGODB_URI, server_api=ServerApi('1'), tls=True, tlsAllowInvalidCertificates=True)
 db = client['rentalai_db']
 test_collection = db['test_data']
 
