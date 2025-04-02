@@ -13,5 +13,10 @@
         "src": "/(.*)",
         "dest": "ml_server.py"
         }
-    ]
+    ],
+    "functions": {
+        "/**": {
+            "excludeFiles": "{.next,*.cache,node_modules,public,app}/**"
+        }
+    }
 }
