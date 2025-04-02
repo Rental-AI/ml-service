@@ -4,7 +4,14 @@
     "devCommand": "gunicorn ml_server:app",
     "functions": {
         "ml_server.py": {
-            "runtime": "python"
+            "excludeFiles": [
+                ".next/**",
+                "*.cache/**",
+                "node_modules/**",
+                "public/**",
+                "app/**",
+                "static/**"
+            ]
         }
     },
     "routes": [
@@ -12,13 +19,5 @@
             "src": "/(.*)",
             "dest": "ml_server.py"
         }
-    ],
-    "excludeFiles": [
-        ".next/**",
-        "*.cache/**",
-        "node_modules/**",
-        "public/**",
-        "app/**",
-        "static/**"
     ]
 }
