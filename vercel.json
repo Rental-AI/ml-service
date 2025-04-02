@@ -12,7 +12,7 @@
     "routes": [
         {
         "src": "/(.*)",
-        "dest": "ml_server.py"
+        "dest": "api/ml_server.py"
         }
     ]
 }
