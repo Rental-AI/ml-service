@@ -56,7 +56,7 @@ s3_client = boto3.client(
 
 def load_data_to_mongodb():
     # Load test_set data
-    test_df = pd.read_csv('data/test_set.csv')
+    test_df = pd.read_csv('../data/test_set.csv')
     
     # Convert DataFrame to list of dictionaries
     test_records = test_df.to_dict('records')
@@ -101,7 +101,7 @@ load_data_to_mongodb()
 
 # 2. load model from pickle file
 def load_model_from_file():
-    with open('model.pkl', 'rb') as file:
+    with open('../model.pkl', 'rb') as file:
         return pickle.load(file)
 
 model = load_model_from_file()
@@ -293,7 +293,7 @@ def plot_feat_import():
             # Make sure the static directory exists
             os.makedirs('static', exist_ok=True)
             
-            image_path = f'./static/{filename}'
+            image_path = f'../static/{filename}'
             plt.savefig(image_path, bbox_inches='tight')
             
             # Return the local path
