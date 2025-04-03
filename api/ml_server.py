@@ -82,10 +82,10 @@ def load_test_plot():
 
     X_test = test.drop('target', axis=1)
 
-    # Fits the explainer
+    # Fits the permutation explainer
     explainer = shap.Explainer(model.predict, X_test)
     # Calculates the SHAP values - It takes some time
-    shap_values = explainer(X_test)
+    shap_values = explainer(X_test, nsamples=10)
 
     plt.figure()
     shap.plots.beeswarm(shap_values, max_display=10, show=False)
